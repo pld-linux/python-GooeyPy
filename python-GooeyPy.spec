@@ -20,6 +20,7 @@ Source0:	http://cheeseshop.python.org/packages/source/G/GooeyPy/%{module}-%{vers
 URL:		http://joey101.net/gooeypy/
 #BuildRequires:	expat-devel >= 1:1.95.8
 BuildRequires:	python >= 1:2.4
+BuildRequires:	python-devel
 BuildRequires:	python-setuptools
 #Requires:	python-Cellulose
 %pyrequires_eq	python-modules
