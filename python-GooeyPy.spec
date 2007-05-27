@@ -1,11 +1,12 @@
 #
 # TODO :
+# - fix License (GPL v2.1 not released yet ;P ; is LICENSE.txt just (L)GPL copy?)
 # - Remove Cellulose to different spec
 #
 %define	module	GooeyPy
 
-Summary:	Python/GooeyPy package
-Summary(pl.UTF-8):	Pakiet Python/GooeyPy
+Summary:	Python/GooeyPy - a fast, flexible and cool looking GUI for pygame
+Summary(pl.UTF-8):	Python/GooeyPy - szybkie, elastycznie i dobrze wyglądające GUI dla pygame
 Name:		python-%{module}
 Version:	0.0.4.1
 Release:	1
@@ -26,8 +27,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 A fast, flexible, and cool looking GUI for pygame. 
 
-#% description -l pl.UTF-8
-Szybkie, elastyczne i fajnie wygladajace GUI dla pygame
+%description -l pl.UTF-8
+Szybkie, elastyczne i dobrze wyglądające GUI dla pygame.
+
 %package examples
 Summary:	Examples of Python/GooeyPy
 Summary(pl.UTF-8):	Przykłady do Python/GooeyPy
@@ -49,21 +51,21 @@ python setup.py build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_examplesdir}/%{module}
+install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 python setup.py install \
 	--root=$RPM_BUILD_ROOT \
 	--optimize=2
 
 # Cellulose
-unzip  -d $RPM_BUILD_ROOT%{py_sitescriptdir} $RPM_BUILD_ROOT%{py_sitescriptdir}/Cellulose-0.1.2-py%py_ver.egg 
-rm -f  $RPM_BUILD_ROOT%{py_sitescriptdir}/Cellulose-0.1.2-py%py_ver.egg
+unzip -d $RPM_BUILD_ROOT%{py_sitescriptdir} $RPM_BUILD_ROOT%{py_sitescriptdir}/Cellulose-0.1.2-py%{py_ver}.egg
+rm -f $RPM_BUILD_ROOT%{py_sitescriptdir}/Cellulose-0.1.2-py%{py_ver}.egg
 
-cp -a  examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{module}
+cp -a  examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 rm -f  $RPM_BUILD_ROOT%{py_sitescriptdir}/*.py[co]
 rm -rf $RPM_BUILD_ROOT%{py_sitescriptdir}/EGG-INFO
-cp -a  $RPM_BUILD_ROOT%{py_sitescriptdir}/%{module}-%{version}-py%py_ver.egg/gooeypy $RPM_BUILD_ROOT%{py_sitescriptdir}/gooeypy
-rm -rf $RPM_BUILD_ROOT%{py_sitescriptdir}/%{module}-%{version}-py%py_ver.egg
+cp -a  $RPM_BUILD_ROOT%{py_sitescriptdir}/%{module}-%{version}-py%{py_ver}.egg/gooeypy $RPM_BUILD_ROOT%{py_sitescriptdir}/gooeypy
+rm -rf $RPM_BUILD_ROOT%{py_sitescriptdir}/%{module}-%{version}-py%{py_ver}.egg
 
 %py_ocomp $RPM_BUILD_ROOT%{py_sitescriptdir}
 %py_comp $RPM_BUILD_ROOT%{py_sitescriptdir}
@@ -80,5 +82,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %files examples
 %defattr(644,root,root,755)
-%dir %{_examplesdir}/%{module}
-%{_examplesdir}/%{module}
+%{_examplesdir}/%{name}-%{version}
