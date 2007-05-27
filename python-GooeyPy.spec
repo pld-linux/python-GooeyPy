@@ -18,6 +18,7 @@ URL:		http://joey101.net/gooeypy/
 BuildRequires:	python >= 1:2.4
 BuildRequires:	python-devel
 BuildRequires:	python-setuptools
+BuildRequires:	rpmbuild(macros) >= 1.219
 #Requires:	python-Cellulose
 %pyrequires_eq	python-modules
 Provides:	python-Cellulose
