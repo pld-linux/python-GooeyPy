@@ -3,7 +3,6 @@
 # - Remove Cellulose to different spec
 #
 %define	module	GooeyPy
-%define python_version py2.4
 
 Summary:	Python/GooeyPy package
 Summary(pl.UTF-8):	Pakiet Python/GooeyPy
@@ -57,16 +56,14 @@ python setup.py install \
 	--optimize=2
 
 # Cellulose
-unzip  -d $RPM_BUILD_ROOT%{py_sitescriptdir} $RPM_BUILD_ROOT%{py_sitescriptdir}/Cellulose-0.1.2-py2.4.egg 
-rm -f  $RPM_BUILD_ROOT%{py_sitescriptdir}/Cellulose-0.1.2-py2.4.egg
+unzip  -d $RPM_BUILD_ROOT%{py_sitescriptdir} $RPM_BUILD_ROOT%{py_sitescriptdir}/Cellulose-0.1.2-py%py_ver.egg 
+rm -f  $RPM_BUILD_ROOT%{py_sitescriptdir}/Cellulose-0.1.2-py%py_ver.egg
 
 cp -a  examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{module}
 rm -f  $RPM_BUILD_ROOT%{py_sitescriptdir}/*.py[co]
 rm -rf $RPM_BUILD_ROOT%{py_sitescriptdir}/EGG-INFO
-cp -a  $RPM_BUILD_ROOT%{py_sitescriptdir}/%{module}-%{version}-%{python_version}.egg/gooeypy $RPM_BUILD_ROOT%{py_sitescriptdir}/gooeypy
-rm -rf $RPM_BUILD_ROOT%{py_sitescriptdir}/%{module}-%{version}-%{python_version}.egg/examples
-rm -rf $RPM_BUILD_ROOT%{py_sitescriptdir}/%{module}-%{version}-%{python_version}.egg/docs
-rm -rf $RPM_BUILD_ROOT%{py_sitescriptdir}/%{module}-%{version}-%{python_version}.egg/gooeypy
+cp -a  $RPM_BUILD_ROOT%{py_sitescriptdir}/%{module}-%{version}-py%py_ver.egg/gooeypy $RPM_BUILD_ROOT%{py_sitescriptdir}/gooeypy
+rm -rf $RPM_BUILD_ROOT%{py_sitescriptdir}/%{module}-%{version}-py%py_ver.egg
 
 %py_ocomp $RPM_BUILD_ROOT%{py_sitescriptdir}
 %py_comp $RPM_BUILD_ROOT%{py_sitescriptdir}
