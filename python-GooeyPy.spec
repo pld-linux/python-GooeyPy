@@ -1,6 +1,5 @@
 #
 # TODO :
-# - fix License (GPL v2.1 not released yet ;P ; is LICENSE.txt just (L)GPL copy?)
 # - Remove Cellulose to different spec
 #
 %define	module	GooeyPy
@@ -10,7 +9,7 @@ Summary(pl.UTF-8):	Python/GooeyPy - szybkie, elastycznie i dobrze wyglądające 
 Name:		python-%{module}
 Version:	0.0.4.1
 Release:	1
-License:	GPL v2.1
+License:	LGPL v2.1
 Group:		Libraries/Python
 Source0:	http://cheeseshop.python.org/packages/source/G/GooeyPy/%{module}-%{version}.tar.gz
 # Source0-md5:	1675af89a1b5be44097bde705c2e6c38
@@ -76,7 +75,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS CHANGELOG LICENSE.txt README
+%doc AUTHORS CHANGELOG README
 %{py_sitescriptdir}/gooeypy
 %{py_sitescriptdir}/cellulose
 
