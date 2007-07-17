@@ -5,12 +5,12 @@
 Summary:	Python/GooeyPy - a fast, flexible and cool looking GUI for pygame
 Summary(pl.UTF-8):	Python/GooeyPy - szybkie, elastycznie i dobrze wyglądające GUI dla pygame
 Name:		python-%{module}
-Version:	0.0.4.1
+Version:	0.1.1
 Release:	1
 License:	LGPL v2.1
 Group:		Libraries/Python
 Source0:	http://cheeseshop.python.org/packages/source/G/GooeyPy/%{module}-%{version}.tar.gz
-# Source0-md5:	1675af89a1b5be44097bde705c2e6c38
+# Source0-md5:	0193d42c011827c74ecaeb83748bd9a6
 URL:		http://joey101.net/gooeypy/
 BuildRequires:	python >= 1:2.4
 BuildRequires:	python-devel
