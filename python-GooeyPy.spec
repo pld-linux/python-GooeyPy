@@ -1,5 +1,6 @@
+#
 %define	module	GooeyPy
-
+#
 Summary:	Python/GooeyPy - a fast, flexible and cool looking GUI for pygame
 Summary(pl.UTF-8):	Python/GooeyPy - szybkie, elastycznie i dobrze wyglądające GUI dla pygame
 Name:		python-%{module}
@@ -11,7 +12,9 @@ Source0:	http://cheeseshop.python.org/packages/source/G/GooeyPy/%{module}-%{vers
 # Source0-md5:	90bf6d39c0a5d4382a2b8bec965ceb3e
 URL:		http://joey101.net/gooeypy/
 BuildRequires:	python >= 1:2.4
+BuildRequires:	python-Cellulose
 BuildRequires:	python-devel
+BuildRequires:	python-pygame
 BuildRequires:	python-setuptools
 BuildRequires:	rpmbuild(macros) >= 1.219
 Requires:	python-Cellulose
@@ -19,7 +22,7 @@ Requires:	python-Cellulose
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-A fast, flexible, and cool looking GUI for pygame. 
+A fast, flexible, and cool looking GUI for pygame.
 
 %description -l pl.UTF-8
 Szybkie, elastyczne i dobrze wyglądające GUI dla pygame.
@@ -47,10 +50,6 @@ python setup.py build
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{py_sitescriptdir}
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
-
-#python setup.py install \
-#	--root=$RPM_BUILD_ROOT \
-#	--optimize=2
 
 cp -af  examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 cp -af  gooeypy $RPM_BUILD_ROOT%{py_sitescriptdir}/gooeypy
