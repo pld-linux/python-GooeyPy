@@ -16,7 +16,7 @@ BuildRequires:	python-Cellulose
 BuildRequires:	python-devel
 BuildRequires:	python-pygame
 BuildRequires:	python-setuptools
-BuildRequires:	rpmbuild(macros) >= 1.219
+BuildRequires:	rpmbuild(macros) >= 1.710
 Requires:	python-Cellulose
 %pyrequires_eq	python-modules
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
